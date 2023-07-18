@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Mapa interactivo de One Piece</title>
+  <style>
+/* Estilos CSS */
+
+    /* Fuente */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(24, 162, 212);
+      zoom: 76%;
+    }
+
+    h1 {
+      font-family: "Impact", sans-serif;
+      color: #ff4d4d;
+      font-size: 55px;
+      text-align: center;
+    }
+
+    p {
+      color: #000;
+      font-size: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .punto-interes {
+      background-color: #ff4d4d;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .punto-interes:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .info {
+      border: 6px solid red;
+      animation: animated-border 5s linear infinite;
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      padding: 10px;
+      max-width: 300px;
+      background-color: #ffffffc4;
+      box-shadow: 16px 14px 20px black;
+      animation: animated-border 5s linear infinite;
+    }
+
+    @keyframes animated-border {
+      0% {
+        border-color: red;
+      }
+
+      25% {
+        border-color: blue;
+      }
+
+      50% {
+        border-color: rgb(18, 187, 41);
+      }
+
+      75% {
+        border-color: yellow;
+      }
+
+      100% {
+        border-color: red;
+      }
+    }
+
+    .info img {
+      max-width: 300px;
+      max-height: 300px;
+    }
+
+    /* Resto de estilos */
+    #mapa {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      border: 1px solid black;
+      margin-left: 70px;
+    }
+
+    #barco {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      cursor: move;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Mapa interactivo de One Piece</h1>
+  <p>El orden de los puntos se establecen de acuerdo al manga</p>
+  <div id="mapa">
+    <img src="Imagenes/Mapa.jpg" alt="Mapa de One Piece">
+    <img id="barco" src="Imagenes/Barco.png" alt="Barco de la tripulación de Luffy">
+    <div class="punto-interes" style="top: 234px; left: 1690px;">
+      <div class="info">
+        <h3>#1 Isla de Dawn</h3>
+        <p>Región: East Blue
+          Afiliaciones: Reino de Goa.
+          Lugares destacados:
+          Reino de Goa,
+          Villa Foosha,
+          Monte Colubo,
+          Gray Terminal,
+          Flora y fauna.
+        </p>
+        <img src="Imagenes/Goa.jpeg" alt="Dawn Island">
+      </div>
+    </div>
+    <div class="punto-interes" style="top: 264px; left: 1637px;">
+      <div class="info">
+        <h3>#2 Isla Goat</h3>
+        <p>Isla de Goa
+          Región: East Blue
+          Afiliaciones: Reino de Goa
+          Lugares destacados:
+          Reino de Goa: Capital con niveles sociales y residencia de la realeza.
+          Gray Terminal: Vertedero lleno de basura y tierra.
+        </p>
+        <img src="Imagenes/Isla_Goat.png" alt="Goa Island">
+      </div>
+    </div>
+    <div class="punto-interes" style="top: 180px; left: 1590px;">
+      <div class="info">
+        <h3>#3 Isla Yotsuba → Shell Town</h3>
+        <p>Otra información relevante sobre este punto.</p>
+        <img src="Imagenes/Shells_Town.webp" alt="Shells_Town">
+      </div>
+    </div>
+    <div class="punto-interes" style="top: 328px; left: 1466px;">
+      <div class="info">
+        <h3>#4 Isla de los animales raros</h3>
+        <p>Otra información relevante sobre este punto.</p>
+        <img src="Imagenes/animales_raros.png" alt="Shells_Town">
+      </div>
+    </div>
+    <div class="punto-interes" style="top: 300px; left: 1470px;">
+      <div class="info">
+        <h3>#5 Islas Organ → Orange Town</h3>
+        <p>Otra información relevante sobre este punto.</p>
+        <img src="Imagenes/Orange.png" alt="Shells_Town">
+      </div>
+    </div>
+    <div class="punto-interes" style="top: 357px; left: 1410px;">
+      <div class="info">
+        <h3>#6 Islas Gecko → Syrup</h3>
+        <p>Otra información relevante sobre este punto.</p>
+        <img src="Imagenes/Syrup.webp" alt="Syrup">
+      </div>
+    </div>
+    <div class="punto-interes" style="top: 428px; left: 1346px;">
+      <div class="info">
+        <h3>#7 Región de Sambas → Baratie</h3>
+        <p>Otra información relevante sobre este punto.</p>
+        <img src="Imagenes/Baratie.png" alt="Baratie">
+      </div>
+    </div>
+    <div class="punto-interes" style="top: 284px; left: 1288px;">
+      <div class="info">
+        <h3>#8 Islas Conomi → Kokoyashi</h3>
+        <p>Otra información relevante sobre este punto.</p>
+        <img src="Imagenes/Kokoyashi.webp" alt="Kokoyashi">
+      </div>
+    </div>
+    <div class="punto-interes" style="top: 554px; left: 1036px;">
+      <div class="info">
+        <h3>#9 Archipiélago Polestar → Loguetown</h3>
+        <p>Otra información relevante sobre este punto.</p>
+        <img src="Imagenes/Loguetown.jpg" alt="Loguetown">
+      </div>
+    </div>
+
+    <!-- Agrega más puntos de interés aquí -->
+  </div>
+
+  <footer>
+    <p>Derechos de autor &copy; 2023 | Mapa interactivo de One Piece</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Variables
+      var isDragging = false;
+      var barco = document.getElementById('barco');
+      var mapa = document.getElementById('mapa');
+      var initialX, initialY, offsetX, offsetY;
+
+      // Evento para iniciar el arrastre
+      barco.addEventListener('mousedown', function (event) {
+        isDragging = true;
+        initialX = event.clientX;
+        initialY = event.clientY;
+        offsetX = parseInt(barco.style.left) || 0;
+        offsetY = parseInt(barco.style.top) || 0;
+        event.preventDefault();
+      });
+
+      // Evento para finalizar el arrastre
+      document.addEventListener('mouseup', function () {
+        isDragging = false;
+      });
+
+      // Evento para mover el barco
+      mapa.addEventListener('mousemove', function (event) {
+        if (isDragging) {
+          var currentX = event.clientX;
+          var currentY = event.clientY;
+          var deltaX = currentX - initialX;
+          var deltaY = currentY - initialY;
+          var newOffsetX = offsetX + deltaX;
+          var newOffsetY = offsetY + deltaY;
+
+          barco.style.left = newOffsetX + 'px';
+          barco.style.top = newOffsetY + 'px';
+        }
+      });
+
+      // Evento para mostrar los cuadros de interés al pasar el puntero por encima
+      var puntosInteres = document.querySelectorAll('.punto-interes');
+      puntosInteres.forEach(function (punto) {
+        punto.addEventListener('mouseover', function () {
+          var info = punto.querySelector('.info');
+          info.style.display = 'block';
+        });
+
+        punto.addEventListener('mouseout', function () {
+          var info = punto.querySelector('.info');
+          info.style.display = 'none';
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
