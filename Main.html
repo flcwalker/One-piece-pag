@@ -196,74 +196,123 @@
       </div>
       <div class="punto-interes" style="top:720px; left: 548px;">
         <div class="info">
-          <h3>#10 Grand line → Laboon</h3>
+          <h3>#10 Reverse Mountain → Laboon</h3>
           <p>Otra información relevante sobre este punto.</p>
           <img src="Imagenes/Laboon.png" alt="Laboon">
         </div>
       </div>
-      
-
- <!-- Agrega más puntos de interés aquí -->
+      <div class="punto-interes" style="top:760px; left: 592px;">
+        <div class="info">
+          <h3>#11 Cactus Island → Whiskey peak</h3>
+          <p>Otra información relevante sobre este punto.</p>
+          <img src="Imagenes/Whiskey_peak.png" alt="Whiskey peak">
+        </div>
       </div>
+      <div class="punto-interes" style="top:740px; left: 648px;">
+        <div class="info">
+          <h3>#12 Grand line → Little garden</h3>
+          <p>Otra información relevante sobre este punto.</p>
+          <img src="Imagenes/Little_garden.png" alt="Little garden">
+        </div>
+      </div>
+      <div class="punto-interes" style="top:810px; left: 710px;">
+        <div class="info">
+          <h3>#13 Drum kingdom → Sakura island</h3>
+          <p>Otra información relevante sobre este punto.</p>
+          <img src="Imagenes/Drum.png" alt="Drum kingdom">
+        </div>
+      </div>
+      <div class="punto-interes" style="top:750px; left: 792px;">
+        <div class="info">
+          <h3>#14 Alabasta kingdom → Alabasta </h3>
+          <p>Otra información relevante sobre este punto.</p>
+          <img src="Imagenes/Alabasta.jpg" alt="Alabasta kingdom">
+        </div>
+      </div>
+      <div class="punto-interes" style="top:820px; left: 870px;">
+        <div class="info">
+          <h3>#15 Jaya island → Jaya </h3>
+          <p>Otra información relevante sobre este punto.</p>
+          <img src="Imagenes/Jaya.jpeg" alt="Jaya">
+        </div>
+      </div>
+      <div class="punto-interes" style="top:816px; left: 920px;">
+        <div class="info">
+          <h3>#16 Sky island → Skypiea </h3>
+          <p>Otra información relevante sobre este punto.</p>
+          <img src="Imagenes/Skypiea.jpeg" alt="Skypiea">
+        </div>
+      </div>
+      <div class="punto-interes" style="top:740px; left: 916px;">
+        <div class="info">
+          <h3>#17 Long Ring Long Land → Foxy games </h3>
+          <p>Otra información relevante sobre este punto.</p>
+          <img src="Imagenes/Long Ring Long Land.png" alt="Long Ring Long Land">
+        </div>
+      </div>
+
+
+      <!-- Agrega más puntos de interés aquí -->
     </div>
+  </div>
 
-    <footer>
-      <p>Derechos de autor &copy; 2023 | Mapa interactivo de One Piece</p>
-    </footer>
+  <footer>
+    <p>Derechos de autor &copy; 2023 | Mapa interactivo de One Piece</p>
+  </footer>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Variables
-        var isDragging = false;
-        var barco = document.getElementById('barco');
-        var mapa = document.getElementById('mapa');
-        var initialX, initialY, offsetX, offsetY;
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Variables
+      var isDragging = false;
+      var barco = document.getElementById('barco');
+      var mapa = document.getElementById('mapa');
+      var initialX, initialY, offsetX, offsetY;
 
-        // Evento para iniciar el arrastre
-        barco.addEventListener('mousedown', function (event) {
-          isDragging = true;
-          initialX = event.clientX;
-          initialY = event.clientY;
-          offsetX = parseInt(barco.style.left) || 0;
-          offsetY = parseInt(barco.style.top) || 0;
-          event.preventDefault();
+      // Evento para iniciar el arrastre
+      barco.addEventListener('mousedown', function (event) {
+        isDragging = true;
+        initialX = event.clientX;
+        initialY = event.clientY;
+        offsetX = parseInt(barco.style.left) || 0;
+        offsetY = parseInt(barco.style.top) || 0;
+        event.preventDefault();
+      });
+
+      // Evento para finalizar el arrastre
+      document.addEventListener('mouseup', function () {
+        isDragging = false;
+      });
+
+      // Evento para mover el barco
+      mapa.addEventListener('mousemove', function (event) {
+        if (isDragging) {
+          var currentX = event.clientX;
+          var currentY = event.clientY;
+          var deltaX = currentX - initialX;
+          var deltaY = currentY - initialY;
+          var newOffsetX = offsetX + deltaX;
+          var newOffsetY = offsetY + deltaY;
+
+          barco.style.left = newOffsetX + 'px';
+          barco.style.top = newOffsetY + 'px';
+        }
+      });
+
+      // Evento para mostrar los cuadros de interés al pasar el puntero por encima
+      var puntosInteres = document.querySelectorAll('.punto-interes');
+      puntosInteres.forEach(function (punto) {
+        punto.addEventListener('mouseover', function () {
+          var info = punto.querySelector('.info');
+          info.style.display = 'block';
         });
 
-        // Evento para finalizar el arrastre
-        document.addEventListener('mouseup', function () {
-          isDragging = false;
-        });
-
-        // Evento para mover el barco
-        mapa.addEventListener('mousemove', function (event) {
-          if (isDragging) {
-            var currentX = event.clientX;
-            var currentY = event.clientY;
-            var deltaX = currentX - initialX;
-            var deltaY = currentY - initialY;
-            var newOffsetX = offsetX + deltaX;
-            var newOffsetY = offsetY + deltaY;
-
-            barco.style.left = newOffsetX + 'px';
-            barco.style.top = newOffsetY + 'px';
-          }
-        });
-
-        // Evento para mostrar los cuadros de interés al pasar el puntero por encima
-        var puntosInteres = document.querySelectorAll('.punto-interes');
-        puntosInteres.forEach(function (punto) {
-          punto.addEventListener('mouseover', function () {
-            var info = punto.querySelector('.info');
-            info.style.display = 'block';
-          });
-
-          punto.addEventListener('mouseout', function () {
-            var info = punto.querySelector('.info');
-            info.style.display = 'none';
-          });
+        punto.addEventListener('mouseout', function () {
+          var info = punto.querySelector('.info');
+          info.style.display = 'none';
         });
       });
-    </script>
+    });
+  </script>
 </body>
 
 </html>
