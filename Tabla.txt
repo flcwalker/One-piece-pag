@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sugerencias para mejorar tu programa</title>
+  <style>
+    /* Estilos CSS */
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff4d4d;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #ff4d4d;
+      color: #fff;
+    }
+
+    tr:hover {
+      background-color: #ffcccc;
+    }
+
+    /* Estilos adicionales para la tabla */
+
+    .titulo-tabla {
+      background-color: #ff4d4d;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .descripcion {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sugerencias para mejorar tu programa</h1>
+  <table>
+    <tr>
+      <th>Número</th>
+      <th class="titulo-tabla">Nombre</th>
+      <th>Descripción</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Implementar un buscador</td>
+      <td class="descripcion">Agrega un campo de búsqueda en tu página para que los usuarios puedan buscar puntos de interés específicos en el mapa. Esto facilitará la navegación y la encontrarán más útil.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Optimizar las imágenes</td>
+      <td class="descripcion">Verifica el tamaño y formato de las imágenes que utilizas en tu programa. Optimizarlas reducirá el tiempo de carga de la página y mejorará la experiencia del usuario. Puedes utilizar herramientas en línea para comprimir las imágenes sin perder calidad.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Añadir información adicional</td>
+      <td class="descripcion">Considera agregar más información relevante a cada punto de interés en el mapa. Esto puede incluir enlaces a recursos externos, imágenes adicionales o detalles históricos. Esto enriquecerá la experiencia del usuario y hará que tu programa sea más completo.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Mejorar la usabilidad móvil</td>
+      <td class="descripcion">Asegúrate de que tu programa sea completamente funcional y fácil de usar en dispositivos móviles. Verifica que todos los elementos se ajusten correctamente en pantallas más pequeñas y que las interacciones, como el arrastre del barco, funcionen sin problemas en dispositivos táctiles.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Eliminar elementos innecesarios</td>
+      <td class="descripcion">Revisa tu código y elimina cualquier elemento, estilo o funcionalidad que no esté siendo utilizado o sea redundante. Esto mejorará la eficiencia y el mantenimiento de tu programa, además de reducir el tiempo de carga.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Mejorar estilos</td>
+      <td class="descripcion">Añade estilos atractivos, acordes a la temática y legibles a tu programa. Esto mejorará la apariencia visual y la experiencia del usuario al interactuar con el mapa interactivo de One Piece.</td>
+    </tr>
+  </table>
+</body>
+</html>

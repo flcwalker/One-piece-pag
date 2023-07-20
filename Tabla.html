@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sugerencias para mejorar tu programa</title>
+  <style>
+    /* Estilos CSS */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #ff4d4d;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+    th {
+      background-color: #ff4d4d;
+      color: #fff;
+    }
+    tr:hover {
+      background-color: #ffcccc;
+    }
+    /* Estilos adicionales para la tabla */
+    .titulo-tabla {
+      background-color: #ff4d4d;
+      color: #fff;
+      font-weight: bold;
+    }
+    .descripcion {
+      font-size: 14px;
+    }
+    .agregar-opcion input[type="text"] {
+      width: 200px;
+    }
+    .agregar-opcion input[type="submit"],
+    .quitar-opcion input[type="submit"] {
+      background-color: #ff4d4d;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sugerencias para mejorar tu programa</h1>
+  <table id="tabla-sugerencias">
+    <thead>
+      <tr>
+        <th>Número</th>
+        <th class="titulo-tabla">Nombre</th>
+        <th>Descripción</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Implementar un buscador</td>
+        <td class="descripcion">Agrega un campo de búsqueda en tu página para que los usuarios puedan buscar puntos de interés específicos en el mapa. Esto facilitará la navegación y la encontrarán más útil.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Optimizar las imágenes</td>
+        <td class="descripcion">Verifica el tamaño y formato de las imágenes que utilizas en tu programa. Optimizarlas reducirá el tiempo de carga de la página y mejorará la experiencia del usuario. Puedes utilizar herramientas en línea para comprimir las imágenes sin perder calidad.</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="agregar-opcion">
+    <h3>Agregar opción</h3>
+    <form id="form-agregar-opcion">
+      <input type="text" id="nombre-opcion" placeholder="Nombre">
+      <textarea id="descripcion-opcion" placeholder="Descripción"></textarea>
+      <input type="submit" value="Agregar">
+    </form>
+  </div>
+
+  <div class="quitar-opcion">
+    <h3>Quitar opción</h3>
+    <form id="form-quitar-opcion">
+      <select id="opciones-existentes">
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="1">Implementar un buscador</option>
+        <option value="2">Optimizar las imágenes</option>
+      </select>
+      <input type="submit" value="Quitar">
+    </form>
+  </div>
+
+  <script>
+    // Variables para almacenar las opciones ingresadas o eliminadas
+    var opcionesIngresadas = [
+      {
+        numero: 1,
+        nombre: "Implementar un buscador",
+        descripcion: "Agrega un campo de búsqueda en tu página para que los usuarios puedan buscar puntos de interés específicos en el mapa. Esto facilitará la navegación y la encontrarán más útil."
+      },
+      {
+        numero: 2,
+        nombre: "Optimizar las imágenes",
+        descripcion: "Verifica el tamaño y formato de las imágenes que utilizas en tu programa. Optimizarlas reducirá el tiempo de carga de la página y mejorará la experiencia del usuario. Puedes utilizar herramientas en línea para comprimir las imágenes sin perder calidad."
+      }
+    ];
+    var opcionesEliminadas = [];
+
+    // Función para agregar una opción a la tabla
+    function agregarOpcion(numero, nombre, descripcion) {
+      var tabla = document.getElementById('tabla-sugerencias');
+      var fila = tabla.insertRow(-1);
+      var celdaNumero = fila.insertCell(0);
+      var celdaNombre = fila.insertCell(1);
+      var celdaDescripcion = fila.insertCell(2);
+      var celdaAccion = fila.insertCell(3);
+
+      celdaNumero.textContent = numero;
+      celdaNombre.textContent = nombre;
+      celdaDescripcion.textContent = descripcion;
+      celdaAccion.textContent = '';
+
+      // Almacenar la opción ingresada
+      opcionesIngresadas.push({ numero: numero, nombre: nombre, descripcion: descripcion });
+    }
+
+    // Función para eliminar una opción de la tabla
+    function eliminarOpcion(numero) {
+      var tabla = document.getElementById('tabla-sugerencias');
+      var filas = tabla.getElementsByTagName('tr');
+
+      for (var i = 0; i < filas.length; i++) {
+        var celdaNumero = filas[i].getElementsByTagName('td')[0];
+
+        if (celdaNumero.textContent === numero) {
+          tabla.deleteRow(i);
+
+          // Almacenar la opción eliminada
+          opcionesEliminadas.push(opcionesIngresadas[i]);
+          opcionesIngresadas.splice(i, 1);
+          break;
+        }
+      }
+    }
+
+    // Cargar opciones ingresadas al cargar la página
+    for (var i = 0; i < opcionesIngresadas.length; i++) {
+      var opcion = opcionesIngresadas[i];
+      agregarOpcion(opcion.numero, opcion.nombre, opcion.descripcion);
+    }
+
+    // Manejador del evento submit para agregar opción
+    document.getElementById('form-agregar-opcion').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var nombre = document.getElementById('nombre-opcion').value;
+      var descripcion = document.getElementById('descripcion-opcion').value;
+      var numero = opcionesIngresadas.length + 1;
+
+      agregarOpcion(numero, nombre, descripcion);
+
+      document.getElementById('nombre-opcion').value = '';
+      document.getElementById('descripcion-opcion').value = '';
+    });
+
+    // Manejador del evento submit para quitar opción
+    document.getElementById('form-quitar-opcion').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var opcionSeleccionada = document.getElementById('opciones-existentes').value;
+
+      if (opcionSeleccionada) {
+        eliminarOpcion(opcionSeleccionada);
+
+        document.getElementById('opciones-existentes').value = '';
+      }
+    });
+  </script>
+</body>
+</html>
